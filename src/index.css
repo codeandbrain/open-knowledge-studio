@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+/* Scrollbar styling */
+.chat-container::-webkit-scrollbar { width: 6px; }
+.chat-container::-webkit-scrollbar-thumb { background-color: #4A4A4A; border-radius: 3px; }
+.chat-container::-webkit-scrollbar-track { background-color: #282828; }
+
+/* Markdown prose styles — Dark Theme */
+.prose h1 { font-size: 1.5em; font-weight: bold; margin-top: 0.8em; margin-bottom: 0.4em; }
+.prose h2 { font-size: 1.25em; font-weight: bold; margin-top: 0.7em; margin-bottom: 0.35em; }
+.prose h3 { font-size: 1.1em; font-weight: bold; margin-top: 0.6em; margin-bottom: 0.3em; }
+.prose p { margin-bottom: 0.4em; line-height: 1.6; }
+.prose ul, .prose ol { margin-left: 1.25em; margin-bottom: 0.4em; }
+.prose li { margin-bottom: 0.2em; }
+.prose code { padding: 0.15em 0.4em; border-radius: 3px; font-family: 'Courier New', Courier, monospace; font-size: 0.88em; }
+.prose pre { padding: 0.8em; border-radius: 6px; overflow-x: auto; margin-bottom: 0.5em; }
+.prose pre code { background-color: transparent; padding: 0; font-size: 0.88em; color: inherit; }
+.prose blockquote { border-left: 3px solid #4A4A4A; margin-left: 0; padding-left: 1em; color: #A8ABB4; margin-bottom: 0.5em; }
+.prose a { text-decoration: underline; }
+.prose table { border-collapse: collapse; margin-bottom: 0.6em; font-size: 0.9em; width: 100%; }
+.prose th, .prose td { border: 1px solid #3A3A3A; padding: 0.35em 0.6em; text-align: left; }
+.prose th { font-weight: 600; }
+.prose hr { border: none; border-top: 1px solid #3A3A3A; margin: 0.8em 0; }
+
+/* Light theme prose */
+html:not(.dark) .prose h1,
+html:not(.dark) .prose h2,
+html:not(.dark) .prose h3,
+html:not(.dark) .prose p,
+html:not(.dark) .prose ul,
+html:not(.dark) .prose ol,
+html:not(.dark) .prose li,
+html:not(.dark) .prose strong,
+html:not(.dark) .prose em,
+html:not(.dark) .prose th { color: #1a1a1a; }
+
+html:not(.dark) .prose a { color: #2563eb; }
+html:not(.dark) .prose blockquote { border-left-color: #d1d5db; color: #4b5563; }
+html:not(.dark) .prose th,
+html:not(.dark) .prose td { border-color: #d1d5db; }
+html:not(.dark) .prose th { background-color: #f3f4f6; }
+html:not(.dark) .prose hr { border-top-color: #d1d5db; }
+
+/* Syntax highlighting — Dark Theme (Atom One Dark replacement) */
+.hljs { background-color: #1E1E20; color: #D4D4D4; display: block; }
+.hljs-keyword { color: #C586C0; font-weight: 600; }
+.hljs-string { color: #CE9178; }
+.hljs-comment { color: #6A9955; font-style: italic; }
+.hljs-number { color: #B5CEA8; }
+.hljs-function { color: #DCDCAA; }
+.hljs-type { color: #4EC9B0; }
+.hljs-variable { color: #9CDCFE; }
+.hljs-operator { color: #D4D4D4; }
+.hljs-built_in { color: #4EC9B0; }
+
+/* Syntax highlighting — Light Theme */
+html:not(.dark) .hljs { background-color: #f8f9fa; color: #333; }
+html:not(.dark) .hljs-keyword { color: #d73a49; }
+html:not(.dark) .hljs-string { color: #032f62; }
+html:not(.dark) .hljs-comment { color: #6a737d; }
+html:not(.dark) .hljs-number { color: #005cc5; }
+html:not(.dark) .hljs-function { color: #6f42c1; }
+html:not(.dark) .hljs-type { color: #22863a; }
+
+/* KaTeX rendering fix */
+.katex { font-size: 1.05em; }
+
+/* Drag-and-drop zone */
+.drop-zone {
+  border: 2px dashed transparent;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.drop-zone.dragover {
+  border-color: #4f46e5;
+  background-color: rgba(79, 70, 229, 0.08);
+}
+
+/* Voice input pulse animation */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  80%, 100% { transform: scale(1.2); opacity: 0; }
+}
+.voice-recording .pulse-ring {
+  animation: pulse-ring 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Print styles for report export */
+@media print {
+  .no-print { display: none !important; }
+  .prose { color: #000 !important; }
+  .prose pre { white-space: pre-wrap; word-break: break-word; }
+}
+
+/* Responsive mobile adjustments */
+@media (max-width: 768px) {
+  .prose pre { font-size: 0.78em; }
+}
